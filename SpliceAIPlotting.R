@@ -46,6 +46,7 @@ wt_plot <- ggplot() +
   geom_text(data = exons.wt, aes(x = (xmin + xmax) / 2, y = (ymin + ymax) / 2, label = label), 
             color = "white", size = 2) +
   theme_classic()
+wt_plot
 
 #Now plot recombination one. I am not plotting the FLEx one because it lost its donor and acceptor completely which is what we are expecting.
 df_reco_long <- pivot_longer(df_reco, cols = c("Acceptor.Score", "Donor.Score"), 
@@ -60,7 +61,7 @@ exons.rec <- data.frame(
   label = c("ex.2")
 )
 
-ggplot() +
+rec_plot <- ggplot() +
   geom_point(data = df_reco_long, aes(x = Position, y = Probability, color = Type), alpha = 0.6)+
   labs(title = "SpliceAI Predictions mATRX Recombination", x = "Position", y = "Splicing Probability") +
   scale_color_manual(values = c("red","blue"), labels = c("Acceptor", "Donor")) +  # Acceptor = blue, Donor = red
@@ -69,7 +70,11 @@ ggplot() +
   geom_hline(yintercept = 0.5, color = "grey20", linetype = "dashed", alpha = 0.2) +
   geom_vline(xintercept = 1224, color = "red", linetype = "dashed", alpha = 0.2) +
   geom_vline(xintercept = 1336, color = "blue", linetype = "dashed", alpha = 0.2) +
-  geom_rect(data = exons.wt, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
-  geom_text(data = exons.wt, aes(x = (xmin + xmax) / 2, y = (ymin + ymax) / 2, label = label), 
+  geom_rect(data = exons.rec, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
+  geom_text(data = exons.rec, aes(x = (xmin + xmax) / 2, y = (ymin + ymax) / 2, label = label), 
             color = "white", size = 2) +
   theme_classic()
+rec_plot
+
+library(gridExtra)
+grid.arrange(wt_plot, rec_plot, ncol = 2)
