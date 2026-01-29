@@ -6,7 +6,7 @@ library(tidyr)
 dir <- "/Users/rluo/Documents/TillotsonLab/SpliceAI/ATRX/SpliceAIPlotting"
 setwd(dir)
 list.files(pattern = "*.tsv")
-df <- read_tsv("RL_Ex2FLEx_output_threshold0.25_new_sta.tsv")
+df <- read_tsv("RL_Ex2FLEx_output_threshold0.25_2.tsv")
 #Rename Columns
 colnames(df) <- c("Sequence.ID",
                   "Position",
@@ -15,8 +15,8 @@ colnames(df) <- c("Sequence.ID",
                   "Donor.Score")
 unique(df$Sequence.ID)
 #Split it into separate tables based on unique sequence ID
-df_wt <- subset(df, Sequence.ID == "Ex2WT_for_SpliceAI(New)")
-df_reco <- subset(df, Sequence.ID == "Ex2FLEx_Recombination_for_SpliceAI(New)")
+df_wt <- subset(df, Sequence.ID == "Ex2WT_for_SpliceAI_2")
+df_reco <- subset(df, Sequence.ID == "Ex2FLEx_Recombination_for_SpliceAI_2")
 
 df_wt <- df_wt[,c(2,4,5)]
 df_reco <- df_reco[,c(2,4,5)]
