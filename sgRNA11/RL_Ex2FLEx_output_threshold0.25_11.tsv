@@ -1,0 +1,8 @@
+Sequence ID	Position	Nucleotide	Acceptor Score	Donor Score
+Ex2WT_for_SpliceAI_11	15	G	6.270131e-05	0.52291924
+Ex2WT_for_SpliceAI_11	1190	T	0.8293012	4.8046622e-06
+Ex2WT_for_SpliceAI_11	1302	G	0.0010784526	0.514758
+Ex2FLEx_for_SpliceAI_11	15	G	9.69096e-05	0.30740654
+Ex2FLEx_Recombination_for_SpliceAI_11	15	G	5.3335145e-05	0.5467301
+Ex2FLEx_Recombination_for_SpliceAI_11	1224	T	0.8360262	4.9876335e-06
+Ex2FLEx_Recombination_for_SpliceAI_11	1336	G	0.0008926733	0.47707796
